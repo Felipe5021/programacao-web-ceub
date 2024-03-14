@@ -9,6 +9,15 @@ p {
 
 .titulos {
     background-color: yellow;
+    color: blue;
+
+    padding: 10px 20px 30px 40px;
+    border: 5px dotted red;
+    margin: 20px 40px 30px 10px;
+}
+
+.input-bao{
+    padding: 10px;
 }
 
 #paragrafos {
