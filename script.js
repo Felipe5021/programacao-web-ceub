@@ -1,7 +1,7 @@
 let meuArray = ["cachorro", "gato", "coelho", "calopsita", "cobra", "dinossauro"];
 
 for(let i = 0; i < meuArray.length; i++) {
-    console.log(meuArray[1]);
+    console.log(meuArray[i]);
 }
 
 
