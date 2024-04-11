@@ -13,6 +13,32 @@ let valoresConversao = {
    }
 }
 
+let valorUsuario = document.getElementById("valor-usuario");
+valorUsuario.addEventListener("keypress", function(event) {
+
+    console.log(event);
+
+    if(event.key == "Enter") {
+        converter();
+    }
+
+    if(event.ctrlKey == true && event.code == KeyI){
+        inverter();
+    }
+    if(event.ctrlKey == true && event.code == KeyL){
+        limpar();
+    }
+
+});
+
+function limpar() {
+    let valorUsuario = document.getElementById("valor-usuario");
+    let resultado = document.getElementById("resultado");
+
+    valorUsuario.value = "";
+    resultado.textContent = "";
+}
+
 
 function converter() {
     let valorUsuario = document.getElementById("valor-usuario").value;
@@ -20,10 +46,34 @@ function converter() {
     let moedaOrigem = document.getElementById("moeda1").value;
     let moedaDestino = document.getElementById("moeda2").value;
 
+    if(valorUsuario == "") {
+        alert("Valor não pode ser vazio!");
+        return;
+    }
+    
+
+    if(moedaOrigem == moedaDestino) {
+        alert("As moedas são iguais, não é possivel converter")
+        return;
+    }
+
     let conversao = valorUsuario * valoresConversao[moedaOrigem][moedaDestino];
 
+    let simbolo = "";
+    if (moedaDestino == "real") {
+        simbolo = "R$";
+    }
+    if (moedaDestino == "dolar") {
+        simbolo = "US$";
+    }
+
+    if (moedaDestino == "dolar") {
+        simbolo = "€";
+    }
+
+
     let paragrafoResultado = document.getElementById("resultado");
-    paragrafoResultado.textContent = conversao;
+    paragrafoResultado.textContent = simbolo + conversao.toFixed(2);
 
 }
 
