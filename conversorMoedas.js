@@ -13,6 +13,30 @@ let valoresConversao = {
    }
 }
 
+
+let botaoConverter = document.getElementById("botao-converter");
+botaoConverter.addEventListener("click", converter);
+
+let botaoLimpar = document.getElementById("botao-limpar");
+botaoLimpar.addEventListener("click", limpar);
+
+let botaoInverter = document.getElementById("botao-inverter");
+botaoInverter.addEventListener("click", inverter);
+
+let botaoAceitaUsuario = document.getElementById("botao-aceita-mensagem");
+botaoAceitaUsuario.addEventListener("click", aceitaMensagem);
+
+if(localStorage.getItem("aceitouCookie") =="1") {
+    aceitaMensagem();
+}
+
+function aceitaMensagem() {
+    let divMensagemUsuario = document.getElementById("container-mensagem-usuario");
+    divMensagemUsuario.classList.add("oculto");
+
+    localStorage.setItem("aceitouCookie", "1");
+}
+
 let valorUsuario = document.getElementById("valor-usuario");
 valorUsuario.addEventListener("keypress", function(event) {
 
@@ -30,6 +54,7 @@ valorUsuario.addEventListener("keypress", function(event) {
     }
 
 });
+
 
 function limpar() {
     let valorUsuario = document.getElementById("valor-usuario");
