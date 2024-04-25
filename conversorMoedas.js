@@ -31,13 +31,26 @@ if(localStorage.getItem("aceitouCookie") =="1") {
 }
 
 function salvaResultadoNoHistorico(conversao) {
-    let conversaoEmJson = JSON.stringify(conversao);
-    localStorage.setItem("historico", conversaoEmJson);
+    let historico = recuperarHistoricoDeConversoes();
+
+    historico.push(conversao);
+
+    historico = JSON.stringify(historico);
+    localStorage.setItem("historico", historico);
 }
 
 function recuperarHistoricoDeConversoes() {
     let historico = localStorage.getItem("historico");
+
+    if(historico) {
+        return[];
+    }
+
+    let historicoConvertido = JSON.parse(historico);
+    return historicoConvertido;
 }
+
+
 
 function aceitaMensagem() {
     let divMensagemUsuario = document.getElementById("container-mensagem-usuario");
