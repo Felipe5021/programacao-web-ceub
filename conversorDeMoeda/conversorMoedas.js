@@ -87,6 +87,7 @@ function limpar() {
 }
 
 function buscaAPI() {
+    let parametro = moedaOrigem + "-" + moedaDestino;
     let url = "https://economia.awesomeapi.com.br/json/last/USD-BRL";
     fetch(url).then(function(data){
         if(data.status == 200) {
@@ -95,7 +96,8 @@ function buscaAPI() {
         //console.log(data);
         return data.json();
     }).then(function(response){
-        console.log(response);
+        console.log(response["USDBRL"]["ask"]);
+        return response["USDBRL"]["ask"];
     }).catch();
 
 }
