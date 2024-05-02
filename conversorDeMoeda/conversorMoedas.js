@@ -116,41 +116,7 @@ function converter() {
     let moedaDestino = document.getElementById("moeda2").value;
 
     buscaAPI(moedaOrigem, moedaDestino).then(function(data){
-        let objetoEmJson = JSON.parse(data);
-        console.log(data);
-    });
-    return;
-
-    /*
-    if (moedaOrigem == "real") {
-        urlAPIParametroMoedaOrigem = "BRL";
-    }
-
-    if (moedaOrigem == "muro") {
-        urlAPIParametroMoedaOrigem = "EUR";
-    }
-
-    if (moedaOrigem == "dolar") {
-        urlAPIParametroMoedaOrigem = "USD";
-    }
-    */
-    if(valorUsuario == "") {
-        alert("Valor não pode ser vazio!");
-        return;
-    }
-
-    if(valorUsuario < 0) {
-        alert("Valor não pode ser negativo")
-        return;
-    }
-    
-
-    if(moedaOrigem == moedaDestino) {
-        alert("As moedas são iguais, não é possivel converter")
-        return;
-    }
-
-    let conversao = valorUsuario * valoresConversao[moedaOrigem][moedaDestino];
+        let conversao = valorUsuario * data["ask"];
 
     let simbolo = "";
     if (moedaDestino == "real") {
@@ -163,6 +129,19 @@ function converter() {
     if (moedaDestino == "dolar") {
         simbolo = "€";
     }
+
+    let resultado = document.getElementById("resultado");
+    resultado.textContent = simbolo + " " + conversao.toFixed(2);
+
+    let resultadoDaConversao = {
+        valor: valorUsuario,
+        moeda1: moedaOrigem,
+        moeda2: moedaDestino,
+        resultado: conversao
+    }
+    
+
+});
 
 
     let paragrafoResultado = document.getElementById("resultado");
