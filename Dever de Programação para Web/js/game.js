@@ -90,7 +90,7 @@ const createElement = (tag, className) => {
 
     front.style.backgroundImage = `url('../Imagens/${characters}.png')`;
 
-    card.appendChild(front);
+  card.appendChild(front);
   card.appendChild(back);
 
   card.addEventListener('click', revealCard);
