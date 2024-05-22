@@ -82,7 +82,7 @@ const createElement = (tag, className) => {
     }
   }
   
-  const createCard = (character) => {
+  const createCard = (characters) => {
   
     const card = createElement('div', 'card');
     const front = createElement('div', 'face front');
