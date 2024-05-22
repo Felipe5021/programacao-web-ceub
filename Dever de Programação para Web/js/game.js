@@ -94,7 +94,7 @@ const createElement = (tag, className) => {
   card.appendChild(back);
 
   card.addEventListener('click', revealCard);
-  card.setAttribute('data-character', character)
+  card.setAttribute('data-character', characters)
 
   return card;
 }
@@ -104,8 +104,8 @@ const loadGame = () => {
   
     const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);
   
-    shuffledArray.forEach((character) => {
-      const card = createCard(character);
+    shuffledArray.forEach((characters) => {
+      const card = createCard(characters);
       grid.appendChild(card);
     });
   }
