@@ -7,9 +7,17 @@ aplicacao.get('/', (req, res) => {
 });
 
 aplicacao.post('/', (req, res) => {
-    res.send("Meu backend funcionando com método POST")
+    res.send("Meu backend funcionando com método POST!")
+});
+
+aplicacao.get('/moedas', (req, res) => {
+    let moedas = {
+        BRL: "real",
+        USD: "dolar",
+        EUR: "eiro"
+    }
 });
 
 aplicacao.listen(4000, () => {
     console.log("Estou escutando a porta 4000");
-})
+});
